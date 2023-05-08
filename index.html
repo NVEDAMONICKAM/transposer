@@ -1,0 +1,87 @@
+<!-- HTML for tranposemusic.com -->
+<!-- Noah Vedamonickam - 08.05.23 -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css">
+	<title>Transposer | TAC</title>
+	<script src="script.js"></script>
+</head>
+
+<body>
+	<div class="background">
+		<div class="key_selection">
+			<label for="oldKey">Original Key:</label>
+			<select id="oldKey" name="oldKey">
+				<option value="C">C</option>
+				<option value="C#">C#</option>
+				<option value="Db">Db</option>
+				<option value="D">D</option>
+				<option value="D#">D#</option>
+				<option value="Eb">Eb</option>
+				<option value="E">E</option>
+				<option value="F">F</option>
+				<option value="F#">F#</option>
+				<option value="Gb">Gb</option>
+				<option value="G">G</option>
+				<option value="G#">G#</option>
+				<option value="Ab">Ab</option>
+				<option value="A">A</option>
+				<option value="A#">A#</option>
+				<option value="Bb">Bb</option>
+				<option value="B">B</option>
+			</select>
+
+			<label for="newKey">
+				<p>New Key:
+			</label>
+			<select id="newKey" name="newKey">
+				<option value="C">C</option>
+				<option value="C#">C#</option>
+				<option value="Db">Db</option>
+				<option value="D">D</option>
+				<option value="D#">D#</option>
+				<option value="Eb">Eb</option>
+				<option value="E">E</option>
+				<option value="F">F</option>
+				<option value="F#">F#</option>
+				<option value="Gb">Gb</option>
+				<option value="G">G</option>
+				<option value="G#">G#</option>
+				<option value="Ab">Ab</option>
+				<option value="A">A</option>
+				<option value="A#">A#</option>
+				<option value="Bb">Bb</option>
+				<option value="B">B</option>
+			</select>
+			</p>
+		</div>
+
+		<div class="input_lyrics">
+			<h1>Original Lyrics</h1>
+			<textarea id="lyrics"></textarea>
+		</div>
+		<div id="card-stack"></div>
+
+		<div class="transpose_button">
+			<button onclick="doTranspose()">
+				<strong>TRANSPOSE</strong>
+			</button>
+		</div>
+
+		<div class="output_lyrics">
+			<h1>New Lyrics</h1>
+			<textarea id="newLyrics"></textarea>
+		</div>
+	</div>
+
+
+</body>
+
+</html>
