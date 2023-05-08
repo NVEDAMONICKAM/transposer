@@ -1,11 +1,11 @@
 // script to transpose given chords 
 // Noah Vedamonickam - 08.05.23
 
+// key arrays
 let flatKeys = ['C', 'Db', 'D', 'Eb', 'E', 'F', 'Gb', 'G', 'Ab', 'A', 'Bb', 'B'];
 let sharpKeys = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
 
-// Main Functions
-
+// Main Function
 function doTranspose() {
 	let oldKey = document.querySelector("#oldKey").value;
 	let newKey = document.querySelector("#newKey").value;
@@ -53,7 +53,6 @@ function doTranspose() {
 }
 
 // Helper Functions
-
 function containsFS(transposed, index) {
 	if (transposed[index + 2] == 'b' || transposed[index + 2] == '#') return true;
 	return false;
@@ -63,7 +62,3 @@ function setCharAt(str, index, chr) {
 	if (index > str.length - 1) return str;
 	return str.substring(0, index) + chr + str.substring(index + 1);
 }
-
-
-//// Tests
-// [Hello] [Hello] [Hello]
