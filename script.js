@@ -16,6 +16,12 @@ function doTranspose() {
 	let transposed = document.querySelector("#lyrics").value;
 	let newLyrics = document.querySelector("#newLyrics");
 
+	// no chords
+	if (!transposed.includes("[")) {
+		newLyrics.innerHTML = transposed;
+		return;
+	}
+
 	// evaluate keys
 	let oldKeys;
 	if (flats.includes(oldKey)) {
@@ -37,21 +43,13 @@ function doTranspose() {
 	let index = transposed.indexOf("[");
 	let trigger = index - 1;
 	while (trigger < index) {
-		let chordIndex;
-		if (isFS(transposed, index)) {
-			chordIndex = oldKeys.indexOf(transposed[index + 1] + transposed[index + 2]);
-			transposed = transposed.slice(0, index + 2) + transposed.slice(index + 3);
-		} else {
-			chordIndex = oldKeys.indexOf(transposed[index + 1]);
+		while (transposed[index] != ']') {
+			if (oldKeys.includes(transposed[index])) {
+				transposed = transposeChord(transposed, oldKeys, newKeys, index, diff).slice();
+			}
+			index++;
 		}
-
-		if (chordIndex == -1) {
-			alert("Invalid chord found in song (-1)!");
-			return;
-		}
-
-		transposed = setCharAt(transposed, index + 1, newKeys.at((chordIndex + diff) % 12));
-		index = transposed.indexOf("[", index + 1);
+		index = transposed.indexOf("[", index) + 1;
 		trigger++;
 	}
 
@@ -64,8 +62,20 @@ function doTranspose() {
 }
 
 // Helper Functions
+function transposeChord(transposed, oldKeys, newKeys, index, diff) {
+	let chordIndex;
+	if (isFS(transposed, index)) {
+		chordIndex = oldKeys.indexOf(transposed[index] + transposed[index + 1]);
+		transposed = transposed.slice(0, index + 1) + transposed.slice(index + 2);
+	} else {
+		chordIndex = oldKeys.indexOf(transposed[index]);
+	}
+
+	return setCharAt(transposed, index, newKeys.at((chordIndex + diff) % 12));
+}
+
 function isFS(transposed, index) {
-	if (transposed[index + 2] == 'b' || transposed[index + 2] == '#') return true;
+	if (transposed[index + 1] == 'b' || transposed[index + 1] == '#') return true;
 	return false;
 }
 
