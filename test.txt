@@ -1,3 +1,4 @@
+// test 1
 This is a [G] song I made in [C] G,
 It goes [D7] la la [D#dim7] la [Em] la
 
@@ -6,3 +7,7 @@ Here are some [Dm] random [Fm] chords
 sound good
 
 The end
+
+// test 2
+La La La [D/G], this is how my [Dm, G/A, Adim7, F2]
+Song goessss [Em, F, F, G]
